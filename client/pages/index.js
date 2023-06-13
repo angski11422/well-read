@@ -6,6 +6,9 @@ import styles from '@/styles/Home.module.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  fetch('/hello')
+  .then(r => r.json())
+  .then(data => console.log(data))
   return (
     <>
       <Head>
