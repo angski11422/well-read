@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
-import { Nunito_Sans } from 'next/font/google'
+import { Nunito } from 'next/font/google'
 
-const nunito = Nunito_Sans({ subsets: ['latin'] })
+const nunito = Nunito({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }) {
   return (
