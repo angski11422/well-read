@@ -11,12 +11,10 @@ from config import app, db, api
 # from models import User, Recipe
 
 # Views go here!
-class Hello(Resource):
-    def get(self):
-        return {}, 200
+
     
 
-api.add_resource(Hello, '/hello')
+
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
