@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
 }
-
+const path = require('path')
 
 module.exports = () => {
   const rewrites = () => {
@@ -15,7 +15,12 @@ module.exports = () => {
   };
   return {
     rewrites,
-  };
+  },
+  {
+    sassOptions: {
+      includePaths: [path.join(__dirname, 'styles')],
+    },
+  }
 };
 
 // module.exports = nextConfig
