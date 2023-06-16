@@ -13,9 +13,9 @@ export default function MainNav() {
             </Link>
             <form action="/" className={styles.search}>
                 <input type="text" className={styles.search__input} placeholder="Search" />
-                {/* <button className={styles.search__button}>
-                    <Image src={"client/public/images/site/sprites/magnifying-glass.svg"} alt='search' className={styles.search__icon} width={25} height={25}/>
-                </button> */}
+                <button className={styles.search__button}>
+                    <Image src={"/images/site/sprites/magnifying-glass.svg"} alt='search' className={styles.search__icon} width={25} height={25}/>
+                </button>
             </form>
             <div className={styles.usernav}>
                 <div className={styles.usernav__iconbox}>

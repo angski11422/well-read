@@ -3,6 +3,7 @@
     height: 7rem;
     background-color: #fff;
     border-bottom: var(--color-grey-light-2);
+    overflow: hidden;
 
     display: flex;
     justify-content: space-between;
@@ -55,10 +56,6 @@
             transform: translateY(2px);
         }
 
-    }
-
-    &__icon {
-        fill: var(--color-grey-dark-3)
     }
 }
 

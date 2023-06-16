@@ -1,7 +1,5 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+
+
 const path = require('path')
 
 module.exports = () => {
@@ -23,4 +21,4 @@ module.exports = () => {
   }
 };
 
-// module.exports = nextConfig
+
