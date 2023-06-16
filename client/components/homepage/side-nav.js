@@ -1,9 +1,11 @@
 
 
-
+import styles from './side-nav.module.scss'
 
 export default function SideNav() {
     return (
-        <h1>Side Nav - Club Filter</h1>
+        <section className={StyleSheet.sidenav}>
+            <h1>Side Nav - Genre Filter</h1>
+        </section>
     )
 }
