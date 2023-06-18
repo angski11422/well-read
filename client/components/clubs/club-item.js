@@ -7,8 +7,8 @@ import styles from './club-item.module.scss';
 
 
 export default function ClubItem(props) {
-    const { title, image, location, description } = props.club;
-    const linkPath = '/clubs/{id}';
+    const { title, image, location, description, id } = props.club;
+    const linkPath = `/clubs/${id}`;
     return (
         <li className={styles.club}>
             <Link href={linkPath}>
