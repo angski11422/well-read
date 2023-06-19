@@ -1,8 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
 
+
+const path = require('path')
 
 module.exports = () => {
   const rewrites = () => {
@@ -15,7 +13,22 @@ module.exports = () => {
   };
   return {
     rewrites,
-  };
+  },
+  {
+    sassOptions: {
+      includePaths: [path.join(__dirname, 'styles')],
+    },
+  },
+  {
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: '**.com',
+        },
+      ],
+    },
+  }
 };
 
-// module.exports = nextConfig
+
