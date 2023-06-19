@@ -131,11 +131,7 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
-<<<<<<< HEAD
-/******/ 		__webpack_require__.h = function() { return "3e1ac72b7d255000"; }
-=======
-/******/ 		__webpack_require__.h = function() { return "af167688f5a5a674"; }
->>>>>>> clubs
+/******/ 		__webpack_require__.h = function() { return "47b649381ce5dd82"; }
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
