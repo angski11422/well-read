@@ -1,4 +1,4 @@
-# from sqlalchemy_serializer import SerializerMixin;
+from sqlalchemy_serializer import SerializerMixin;
 # from sqlalchemy.orm import validates;
 # from sqlalchemy.ext.hybrid import hybrid_property;
 
@@ -6,8 +6,10 @@ from config import *
 
 # Models go here!
 
-class BookClub(db.Model):
+class BookClub(db.Model, SerializerMixin):
     __tablename__ = 'book_clubs'
+
+    serialize_rules = ('-updated_at', '-created_at', '-books.book_club')
 
     id = db.Column(db.Integer, primary_key=True)
     club_name = db.Column(db.String, nullable=False)
@@ -24,8 +26,10 @@ class BookClub(db.Model):
 
     books = db.relationship('Book', backref='book_club')
 
-class Book(db.Model):
+class Book(db.Model, SerializerMixin):
     __tablename__ = 'books'
+
+    serialize_rules = ('-book_club.books',)
 
     book_id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.String)
