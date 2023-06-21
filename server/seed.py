@@ -8,7 +8,7 @@ from faker import Faker
 
 # Local imports
 from app import app
-from models import db, BookClub, Book
+from models import db, BookClub, Book, User
 
 if __name__ == '__main__':
     fake = Faker()
@@ -21,6 +21,7 @@ if __name__ == '__main__':
         print("Deleting data...")
         BookClub.query.delete()
         Book.query.delete()
+        User.query.delete()
 
         print("Creating BookClubs...")
 
@@ -53,6 +54,23 @@ if __name__ == '__main__':
             books.append(b)
 
         db.session.add_all(books)
+
+        print("Creating Users...")
+
+        users=[]
+        for i in range(5):
+            u = User (
+                first_name=fake.first_name(),
+                last_name=fake.last_name(),
+                email=fake.email(),
+                username=fake.user_name(),
+                _password_hash=fake.password(),
+                avatar=fake.image_url(),
+                birthday=fake.date_of_birth()
+            )
+            users.append(u)
+
+        db.session.add_all(users)
 
         db.session.commit()
 
