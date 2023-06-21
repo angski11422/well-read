@@ -1,34 +1,32 @@
-
-
+/** @type {import('next').NextConfig} */
+const nextConfig = {   reactStrictMode: true, }
 const path = require('path')
 
-module.exports = () => {
-  const rewrites = () => {
+module.exports = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+  },
+  
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.photos', 
+      }
+    ],
+  },
+
+  async rewrites() {
     return [
       {
-        source: "/:path*",
-        destination: "http://localhost:5555/:path*",
+        source: '/api/:path*',
+        destination: 'http://localhost/:path*',
       }
-    ];
-  };
-  return {
-    rewrites,
-  },
-  {
-    sassOptions: {
-      includePaths: [path.join(__dirname, 'styles')],
-    },
-  },
-  {
-    images: {
-      remotePatterns: [
-        {
-          protocol: 'https',
-          hostname: '**.com',
-        },
-      ],
-    },
+    ]
   }
-};
-
+}
 

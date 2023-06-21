@@ -15,3 +15,9 @@ export default function ClubPage() {
         </Fragment>
     )
 }
+
+export const getServerSideProps = async () => {
+    const res = await fetch('http://localhost:5555/bookclubs')
+    const clubs = await res.json()
+    return { props: { clubs } }
+  }
