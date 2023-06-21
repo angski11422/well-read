@@ -22,15 +22,16 @@ class Signup(Resource):
         username = req['username']
         password = req['password']
         avatar = req['avatar']
-        birthday = req['birthday']
+        dob = req['birthday']
         
         if username and password:
-            new_user = User(username=username, first_name=first_name, last_name=last_name, email=email, avatar=avatar, birthday=birthday)
+            new_user = User(username=username, first_name=first_name, last_name=last_name, email=email, avatar=avatar)
             new_user.password_hash = password
+            if dob:
+                new_user.birthday = (datetime.strptime(dob, '%Y-%m-%d').date())
 
             db.session.add(new_user)
             db.session.commit()
-
 
             session['user_id'] = new_user.id
 
@@ -50,7 +51,7 @@ class Login(Resource):
        
         if user.authenticate(password):
             session['user_id'] = user.id
-            
+            print('user logged in')
             return user.to_dict(), 200
         return None, 401
 
@@ -133,7 +134,7 @@ class BooksPath(Resource):
         books = [book.to_dict() for book in Book.query.all()]
         return books, 200
     
-    
+
 class BookByID(Resource):
     def get(self, id):
         try:
@@ -147,6 +148,8 @@ api.add_resource(Logout, '/logout')
 api.add_resource(Login, '/login')
 api.add_resource(CheckSession, '/check_session')
 api.add_resource(Signup, '/signup')
+
+api.add_resource(UserByID, '/users/<int:id>')
 
 api.add_resource(BookClubsPath, '/bookclubs')
 api.add_resource(BookClubByID, '/bookclubs/<int:id>')
