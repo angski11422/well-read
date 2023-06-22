@@ -1,32 +1,11 @@
 
-import { useState, useRef } from 'react';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/router';
+
 
 import styles from './auth-form.module.scss';
 
 
 export default function AuthForm() {
-    const usernameInput = useRef();
-    const passwordInput = useRef();
-    const [isLogin, setIsLogin] = useState(true);
-    const router = useRouter();
 
-    async function handleSignIn(e) {
-        e.preventDefault();
-
-        const enteredUsername = usernameInput.current.value;
-        const enteredPassword = passwordInput.current.value;
-
-        if (isLogin) {
-            await signIn('credentials', {
-              redirect: false,
-              username: enteredUsername,
-              password: enteredPassword,
-            });
-            router.replace('/profile');
-        }
-    }
 
     return (
         <section className={styles.form}>
