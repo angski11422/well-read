@@ -1,8 +1,21 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {   reactStrictMode: true, }
+const nextConfig = {   reactStrictMode: true, 
+  rewrites: async () => {
+    return [
+    {
+        source: '/api/:path*',
+        destination:
+        process.env.NODE_ENV === 'development'
+            ? 'http://127.0.0.1:5555/api/:path*'
+            : '/api/',
+    },
+    ]
+  },
+}
 const path = require('path')
 
-module.exports = {
+module.exports = nextConfig,
+  {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
@@ -19,14 +32,6 @@ module.exports = {
       }
     ],
   },
-
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'http://localhost:5555/:path*',
-      }
-    ]
-  }
 }
+
 
