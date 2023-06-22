@@ -8,8 +8,17 @@ import FeaturedClubs from '../components/homepage/featured-clubs';
 import SideNav from '../components/homepage/side-nav';
 
 
-export default function Home(props) {
-  
+
+export default function Home() {
+  const [clubs, setClubs] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:5555/bookclubs')
+    .then(r => r.json())
+    .then(clubs => setClubs(clubs))
+  }, [])
+
+
   return (
     <Fragment>
       <Head>
@@ -19,14 +28,10 @@ export default function Home(props) {
       <main className={styles.grid}>
         <Hero />
         <SideNav />
-        <FeaturedClubs clubs={props.clubs}/>
+        <FeaturedClubs clubs={clubs}/>
       </main>
     </Fragment>
   )
 }
 
-export const getServerSideProps = async () => {
-  const res = await fetch('http://localhost:5555/bookclubs')
-  const clubs = await res.json()
-  return { props: { clubs } }
-}
+

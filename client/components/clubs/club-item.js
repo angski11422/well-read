@@ -7,16 +7,16 @@ import styles from './club-item.module.scss';
 
 
 export default function ClubItem(props) {
-    const { title, image, location, description, id } = props.club;
+    const { club_name, image, location, description, id } = props.club;
     const linkPath = `/clubs/${id}`;
     return (
         <li className={styles.club}>
             <Link href={linkPath}>
                 <div className={styles.image}>
-                    <Image src={image} alt={title} width={300} height={200}/>
+                    <Image src={image} alt={club_name} width={300} height={200}/>
                 </div>
                 <div className={styles.content}>
-                    <h4>{title}</h4>
+                    <h4>{club_name}</h4>
                     <h6>{location}</h6>
                     <p>{description}</p>
                 </div>

@@ -8,9 +8,9 @@ export default function ClubMain(props) {
     
     return (
         <section className={styles.header}>
-            <h1>{props.title}</h1>
+            <h1>{props.club_name}</h1>
             <div className={styles.image}>
-                <Image src={props.image} alt={props.title} width={400} height={300} />
+                <Image src={props.image} alt={props.club_name} width={400} height={300} />
             </div>
         </section>
     )

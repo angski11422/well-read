@@ -7,6 +7,7 @@ import styles from './clubs-grid.module.scss'
 
 export default function ClubsGrid(props) {
     const { clubs } = props;
+    
 
     return (
         <ul className={styles.grid}>

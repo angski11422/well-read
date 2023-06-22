@@ -6,16 +6,17 @@ import styles from './club-content.module.scss';
 
 
 export default function ClubContent(props) {
-    
+    const { club } = props; 
+
     return (
         <Fragment>
             <article className={styles.content}>
-                <ClubMain title={club.club_name} image={club.image} />
+                <ClubMain club_name={club.club_name} image={club.image} />
                 <h4>{club.location}</h4>
                 <h5>{club.genre}</h5>
                 <p>{club.description}</p>
                 <p>{club.meeting_day}</p>
-                <p>{single_club.currently_reading}</p>
+                <p>{club.book_id}</p>
             </article>
             <div className={styles.button}>
                 <button>Join Book Club</button>
