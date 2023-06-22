@@ -24,7 +24,7 @@ module.exports = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://localhost/:path*',
+        destination: 'http://localhost:5555/:path*',
       }
     ]
   }

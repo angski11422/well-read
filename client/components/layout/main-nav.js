@@ -14,7 +14,9 @@ export default function MainNav() {
             {/* about us, faq */}
             <div className={styles.usernav}>
                 <div className={styles.usernav__iconbox}>
-                    <button className={styles.usernav__button}>Sign In</button>
+                    <Link href='/profile'>
+                        <button className={styles.usernav__button}>Sign In</button>
+                    </Link>
                 </div>  
             </div>
         </header> 
