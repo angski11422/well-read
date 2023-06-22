@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { SessionProvider } from 'next-auth/react';
 
 
-import '@/styles/globals.scss';
+import '../styles/globals.scss';
 import Layout from '../components/layout/layout';
 
 

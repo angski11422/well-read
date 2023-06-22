@@ -26,7 +26,7 @@ export default function Home(props) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await fetch('http://localhost:5555/bookclubs')
+  const res = await fetch('/api/bookclubs')
   const clubs = await res.json()
   return { props: { clubs } }
 }

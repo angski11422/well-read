@@ -7,7 +7,7 @@ from random import randint, choice as rc
 from faker import Faker
 
 # Local imports
-from app import app
+from index import app
 from models import db, BookClub, Book, User
 
 if __name__ == '__main__':
